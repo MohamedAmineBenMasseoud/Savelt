@@ -1,0 +1,26 @@
+{
+  "name": "SaveIt",
+  "short_name": "SaveIt",
+  "description": "Track weekly expenses and your savings goals.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f1f3ea",
+  "theme_color": "#0f9f8f",
+  "orientation": "portrait-primary",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "icons/SaveIt_icons/iOS/AppStore-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/SaveIt_icons/iOS/AppStore-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

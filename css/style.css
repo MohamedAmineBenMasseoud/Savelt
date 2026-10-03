@@ -1,0 +1,167 @@
+/* SaveIt: mobile-first styles */
+:root {
+  --bg: #f1f3ea;
+  --card: #fffefa;
+  --text: #1d2524;
+  --muted: #77807e;
+  --green: #0f8f7f;
+  --green-light: #68c9b5;
+  --green-soft: #e2f3ee;
+  --orange: #f3a23a;
+  --danger: #d96b62;
+  --danger-soft: #fff0ee;
+  --line: #e5e8e2;
+  --shadow: 0 8px 24px rgba(23, 55, 49, 0.08);
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+h1, h2, h3, p { margin: 0; }
+
+/* ---------- layout ---------- */
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px 14px 110px;
+  padding-top: max(16px, env(safe-area-inset-top));
+}
+.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 14px; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.logo {
+  width: 48px; height: 48px; border-radius: 13px; display: block; object-fit: cover;
+  background: none; box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.brand h1 { font-size: 19px; }
+.brand p { margin-top: 2px; font-size: 12px; color: var(--muted); }
+
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+  padding: 15px; margin-bottom: 14px; box-shadow: var(--shadow);
+}
+.section-title { display: flex; justify-content: space-between; align-items: center; margin: 0 2px 10px; }
+.card > .section-title { margin: 0 0 10px; }
+h3 { font-size: 15px; }
+.small { font-size: 12px; color: var(--muted); }
+.empty { text-align: center; color: var(--muted); padding: 22px 10px; }
+.empty h3 { color: var(--text); margin: 6px 0; }
+.empty p { margin-bottom: 12px; }
+
+/* ---------- buttons ---------- */
+.btn {
+  border: 0; border-radius: 12px; padding: 10px 14px; font-weight: 700; color: #fff; background: var(--green);
+}
+.btn.secondary { background: #fff; color: var(--text); border: 1px solid var(--line); }
+.btn.danger { background: var(--danger-soft); color: var(--danger); }
+.add {
+  width: 100%; margin-top: 10px; padding: 11px; border-radius: 12px; font-weight: 800;
+  border: 1px dashed #83bcb0; background: #eff9f6; color: var(--green);
+}
+.iconbtn { border: 0; background: none; padding: 6px; font-size: 15px; color: var(--muted); }
+.iconbtn.light { color: #fff; font-size: 13px; font-weight: 700; background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 7px 10px; }
+
+/* ---------- Savings goal card ---------- */
+.hero {
+  position: relative; overflow: hidden; padding-bottom: 18px;
+  background: linear-gradient(180deg, rgba(198, 235, 243, 0.9), rgba(233, 246, 244, 0.9) 60%, rgba(247, 233, 198, 0.9)), url("../icons/SavingGoal.jpg") center/cover no-repeat;
+}
+.kicker { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; color: #3d6f68; }
+.mini-icon, .category-icon, .action-icon { display: block; width: 18px; height: 18px; object-fit: contain; }
+.iconbtn { display: inline-flex; align-items: center; justify-content: center; }
+.iconbtn img { display: block; width: 16px; height: 16px; object-fit: contain; }
+.hero h2 { font-size: 22px; margin: 6px 0 0; }
+.progress { height: 10px; background: rgba(255, 255, 255, 0.7); border-radius: 99px; overflow: hidden; margin: 14px 0 6px; }
+.progress span { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--green), var(--orange)); }
+.progressrow { display: flex; justify-content: space-between; font-size: 12px; color: #4f6460; }
+
+/* ---------- current week ---------- */
+.week-head {
+  display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 12px;
+  padding: 15px; border-radius: 14px; color: #fff; background: linear-gradient(135deg, #0f8f7f, var(--green-light));
+}
+.week-head h2 { font-size: 22px; }
+.week-head p { margin-top: 3px; font-size: 12px; opacity: 0.92; }
+.line { display: flex; justify-content: space-between; gap: 10px; padding: 8px 0; font-size: 14px; }
+.line.total { border-top: 1px solid var(--line); font-weight: 800; }
+.available {
+  display: flex; justify-content: space-between; align-items: center; margin-top: 8px;
+  padding: 13px 14px; border-radius: 14px; background: var(--green-soft);
+}
+.available span { font-size: 12px; font-weight: 800; color: #3d7168; }
+.available strong { font-size: 25px; color: var(--green); }
+.available.none { background: var(--danger-soft); }
+.available.none span, .available.none strong { color: var(--danger); }
+
+/* ---------- expenses ---------- */
+.expense { display: flex; align-items: center; gap: 9px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.expense:last-of-type { border-bottom: 0; }
+.exp-icon { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: #eef7f3; flex: none; }
+.expense-main { flex: 1; min-width: 0; }
+.expense-main strong { display: block; font-size: 14px; overflow-wrap: anywhere; }
+.expense-main span { font-size: 11px; color: var(--muted); }
+.amount { font-weight: 800; font-size: 14px; white-space: nowrap; }
+
+/* ---------- history ---------- */
+.history-week { padding: 0; overflow: hidden; }
+.history-week summary {
+  list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  padding: 13px 15px; font-weight: 800; cursor: pointer; color: #fff;
+  background: linear-gradient(135deg, #0f8f7f, var(--green-light));
+}
+.history-week summary::-webkit-details-marker { display: none; }
+.history-week summary .small { color: rgba(255, 255, 255, 0.9); font-weight: 600; }
+.history-body { padding: 13px 15px 15px; }
+.history-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 12px; }
+.mini { background: #f6f8f3; border-radius: 10px; padding: 8px; }
+.mini span { display: block; font-size: 10px; color: var(--muted); }
+.mini b { display: block; margin-top: 2px; font-size: 13px; }
+.week-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 12px; }
+
+/* ---------- savings ---------- */
+.data-actions { display: flex; flex-direction: column; gap: 8px; }
+
+/* ---------- bottom tab bar ---------- */
+.tabbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 5;
+  background: rgba(255, 255, 255, 0.96); border-top: 1px solid var(--line);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.tabbar-inner { display: flex; max-width: 480px; margin: 0 auto; }
+.tab { flex: 1; border: 0; background: none; padding: 9px 4px 11px; font-size: 11px; font-weight: 700; color: var(--muted); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
+.tab-icon { display: block; width: 20px; height: 20px; object-fit: contain; margin-bottom: 1px; }
+.tab.active { color: var(--green); background: var(--green-soft); }
+
+/* ---------- popups ---------- */
+.modal-backdrop {
+  position: fixed; inset: 0; z-index: 20; display: flex; align-items: flex-end; justify-content: center;
+  padding: 14px; padding-bottom: max(14px, env(safe-area-inset-bottom)); background: rgba(15, 25, 23, 0.45);
+}
+.modal { width: min(480px, 100%); background: #fff; border-radius: 22px; padding: 18px; box-shadow: 0 20px 70px rgba(0, 0, 0, 0.25); }
+.modal h3 { font-size: 17px; margin-bottom: 12px; }
+.modal-message { font-size: 14px; color: var(--muted); line-height: 1.45; }
+.form .field { margin-bottom: 11px; }
+.field label { display: block; margin-bottom: 4px; font-size: 12px; font-weight: 700; color: var(--muted); }
+.field input, .field select {
+  width: 100%; padding: 12px; font-size: 16px; /* 16px stops iOS zooming in */
+  border: 1px solid var(--line); border-radius: 12px; background: #fbfcfa; outline: none;
+}
+.field input:focus, .field select:focus { border-color: var(--green); }
+.notice { margin-bottom: 12px; padding: 10px 12px; border-radius: 12px; font-size: 12px; line-height: 1.45; color: var(--muted); background: #f5f8f5; }
+.form-error { margin-bottom: 8px; padding: 10px 12px; border-radius: 12px; font-size: 13px; font-weight: 600; color: var(--danger); background: var(--danger-soft); }
+.modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 14px; }
+
+/* ---------- larger screens ---------- */
+@media (min-width: 700px) {
+  .app { padding-top: 28px; }
+  .modal-backdrop { align-items: center; }
+}
